@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arunachaleswara Industries — Home</title>
+  <meta name="description" content="Arunachaleswara Industries — Precision manufacturing for automotive, marine and agriculture." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Arunachaleswara Industries">
+        <img src="../image/logo.png" alt="Company logo" class="logo" onerror="this.src='../image/placeholder-1.jpg'">
+        <span class="brand-name">Arunachaleswara Industries</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="hero" class="hero-section about-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-decor hero-decor--home" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="container hero-inner center">
+        <h1 class="hero-title hero-title--glow">Manufacturing <span class="hero-text-accent">Excellence</span></h1>
+        <p class="hero-subtitle hero-subtitle--shine">Precision • Reliability • Scale</p>
+        <p class="muted">High-precision components and assemblies for Automotive, Marine & Agriculture.</p>
+        <div class="hero-buttons" style="justify-content:center; margin-top:16px;">
+          <a href="products.html" class="btn btn-primary">Explore Products</a>
+          <a href="contact.html" class="btn btn-outline">Request Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT PREVIEW -->
+    <section id="about-preview" class="section section-muted reveal">
+      <div class="container split-grid">
+        <div class="about-card">
+          <h2>About Arunachaleswara</h2>
+          <p class="muted">
+            With decades of manufacturing experience, our focus is on precision engineering and consistent product quality. From prototype to production, we provide end-to-end capabilities.
+          </p>
+
+          <ul class="about-features">
+            <li class="feature"><strong>Quality Systems</strong><span>ISO 9001:2015 standards & traceability</span></li>
+            <li class="feature"><strong>Advanced Machines</strong><span>CNC, multi-axis, and inspection tools</span></li>
+            <li class="feature"><strong>Customer Support</strong><span>Technical support through product lifecycle</span></li>
+          </ul>
+
+          <a href="about.html" class="btn btn-outline mt-12">Read Full Story</a>
+        </div>
+
+        <div class="about-grid">
+          <article class="hover-card why-card">
+            <div class="card-icon">⛓️</div>
+            <h4>Robust Processes</h4>
+            <p>Lean manufacturing and strict quality control to minimize defects.</p>
+          </article>
+
+          <article class="hover-card why-card">
+            <div class="card-icon">🔬</div>
+            <h4>Advanced QA</h4>
+            <p>In-line inspection & metrology for assured tolerances.</p>
+          </article>
+
+          <article class="hover-card why-card">
+            <div class="card-icon">🚚</div>
+            <h4>On-time Delivery</h4>
+            <p>Planning and logistics systems that meet deadlines reliably.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" class="section reveal">
+      <div class="container">
+        <h2 class="section-title center">Why Choose Us?</h2>
+        <div class="cards-grid">
+          <div class="feature-card hover-effect">
+            <div class="feature-top"><div class="feature-icon">🏅</div></div>
+            <h3>ISO Certified</h3>
+            <p>Quality management systems and traceability across production.</p>
+          </div>
+
+          <div class="feature-card hover-effect">
+            <div class="feature-top"><div class="feature-icon">🏭</div></div>
+            <h3>Advanced Machinery</h3>
+            <p>State-of-the-art CNC equipment with skilled operators.</p>
+          </div>
+
+          <div class="feature-card hover-effect">
+            <div class="feature-top"><div class="feature-icon">⚙️</div></div>
+            <h3>Custom Solutions</h3>
+            <p>Tailored manufacturing and prototyping solutions for clients.</p>
+          </div>
+
+          <div class="feature-card hover-effect">
+            <div class="feature-top"><div class="feature-icon">🔧</div></div>
+            <h3>After-Sales Support</h3>
+            <p>Dedicated technical assistance and spare part supply.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS - 3D CAROUSEL -->
+    <section id="products" class="section section-muted reveal">
+      <div class="container">
+        <h2 class="section-title center">Featured Products</h2>
+
+        <!-- 3D circular carousel wrapper -->
+        <div class="carousel-3d" id="carousel3d" aria-label="Featured products carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Example product cards (repeat / add as many as you want, e.g. 15) -->
+            <!-- Keep image paths in ../image/ -->
+            <div class="carousel-item">
+              <figure class="product-card">
+                <img src="../image/img1.jpg.jpg" alt="Product 1">
+                <figcaption><h4>Automobile Spindle</h4></figcaption>
+              </figure>
+            </div>
+
+            <div class="carousel-item">
+              <figure class="product-card">
+                <img src="../image/img1.jpg.jpg" alt="Product 2">
+                <figcaption><h4>Agriculture Coupler</h4></figcaption>
+              </figure>
+            </div>
+
+            <div class="carousel-item">
+              <figure class="product-card">
+                <img src="../image/img1.jpg.jpg" alt="Product 3">
+                <figcaption><h4>Marine Mount</h4></figcaption>
+              </figure>
+            </div>
+
+            <!-- duplicate to demonstrate many items — add real product blocks here -->
+            <div class="carousel-item"><figure class="product-card"><img src="../image/img1.jpg.jpg" alt=""><figcaption><h4>Product 4</h4></figcaption></figure></div>
+            <div class="carousel-item"><figure class="product-card"><img src="../image/img1.jpg.jpg" alt=""><figcaption><h4>Product 5</h4></figcaption></figure></div>
+            <div class="carousel-item"><figure class="product-card"><img src="../image/img1.jpg.jpg" alt=""><figcaption><h4>Product 6</h4></figcaption></figure></div>
+
+            <!-- you can add up to 15+ items -->
+          </div>
+        </div>
+
+        <div class="center mt-16">
+          <a href="products.html" class="btn btn-primary">View All Products</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA -->
+  <section class="section cta reveal">
+    <div class="container center">
+      <h3>Ready to scale production?</h3>
+      <p class="muted">Talk to our engineering team for a fast technical review and quotation.</p>
+      <a href="contact.html" class="btn btn-outline">Contact Sales</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Arunachaleswara Industries</strong>
+        <p class="muted">Precision parts & assemblies • ISO 9001:2015</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-contact muted">
+        <div>Email: arunachaleswara.autocomp@gmail.com</div>
+        <div>Phone: +91 9710449744, +91 9710449745</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom center muted">© <span id="year"></span> Arunachaleswara Industries — All rights reserved.</div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Your custom JS -->
+  <script src="../js/enhance.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
