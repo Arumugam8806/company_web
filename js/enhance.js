@@ -159,43 +159,54 @@ if (counters.length) {
 
   const items = Array.from(track.children);
   const N = items.length;
-  const radius = Math.min(320, Math.max(220, (N * 28)));
+  const getRadius = () => {
+    const w = window.innerWidth;
+    if (w <= 480) return Math.min(160, Math.max(120, N * 14));
+    if (w <= 768) return Math.min(220, Math.max(160, N * 20));
+    return Math.min(320, Math.max(220, N * 28));
+  };
+  let radius = getRadius();
   const theta = 360 / N;
 
-  items.forEach((item, i) => {
-    const angle = theta * i;
-    item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px) translate(-50%, -50%)`;
-    item.style.left = "50%";
-    item.style.top = "50%";
-    item.style.willChange = "transform, filter";
-  });
+  const layoutCarousel = (r) => {
+    items.forEach((item, i) => {
+      const angle = theta * i;
+      item.style.transform = `rotateY(${angle}deg) translateZ(${r}px) translate(-50%, -50%)`;
+      item.style.left = "50%";
+      item.style.top = "50%";
+      item.style.willChange = "transform, filter";
+    });
+  };
+
+  layoutCarousel(radius);
 
   let rotationSpeed = 8 + Math.max(0, (15 - N) * 0.2);
   let tl = gsap.timeline({ repeat: -1, ease: "none" });
   tl.to(track, { rotationY: -360, duration: rotationSpeed * (N / 6), transformOrigin: `50% 50% -${radius}px`, ease: "none" });
 
   items.forEach((item) => {
-    item.addEventListener('mouseenter', () => {
+    const pause = () => {
       tl.pause();
       gsap.to(item, { scale: 1.08, zIndex: 1000, duration: 0.25, ease: "power2.out" });
       items.forEach(sib => { if (sib !== item) gsap.to(sib, { scale: 0.92, filter: "brightness(.85) saturate(.9)", duration: 0.25 }); });
-    });
-    item.addEventListener('mouseleave', () => {
+    };
+    const resume = () => {
       items.forEach(sib => gsap.to(sib, { scale: 1, filter: "none", duration: 0.3 }));
       gsap.to(item, { zIndex: 0, duration: 0.2 });
       tl.play();
-    });
+    };
+    item.addEventListener('mouseenter', pause);
+    item.addEventListener('mouseleave', resume);
+    item.addEventListener('touchstart', pause, { passive: true });
+    item.addEventListener('touchend', resume, { passive: true });
   });
 
   window.addEventListener('resize', () => {
-    const r = Math.min(320, Math.max(220, (items.length * 28)));
-    items.forEach((item, i) => {
-      const angle = theta * i;
-      item.style.transform = `rotateY(${angle}deg) translateZ(${r}px) translate(-50%,-50%)`;
-    });
+    radius = getRadius();
+    layoutCarousel(radius);
     tl.kill();
     tl = gsap.timeline({ repeat: -1, ease: "none" });
-    tl.to(track, { rotationY: -360, duration: rotationSpeed * (items.length / 6), transformOrigin: `50% 50% -${r}px`, ease: "none" });
+    tl.to(track, { rotationY: -360, duration: rotationSpeed * (items.length / 6), transformOrigin: `50% 50% -${radius}px`, ease: "none" });
   });
 })();
 
